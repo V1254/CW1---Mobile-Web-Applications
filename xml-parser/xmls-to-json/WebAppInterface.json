@@ -1,0 +1,34 @@
+{
+    "abstract_method": [
+        {
+            "name": "authenticateUser",
+            "access_level": "public",
+            "arguments": [
+                {
+                    "type": "String",
+                    "variable": "user"
+                },
+                {
+                    "type": "String",
+                    "variable": "password"
+                }
+            ],
+            "throws": [
+                "RemoteException",
+                "SecurityException"
+            ],
+            "return": "boolean"
+        },
+        {
+            "name": "activateUser",
+            "access_level": "public",
+            "arguments": {
+                "parameter": {
+                    "type": "URL",
+                    "variable": "link"
+                }
+            },
+            "return": "void"
+        }
+    ]
+}

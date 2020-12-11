@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface id="RESTController">
+	<package>uk.ac.le.cs.wt</package>
+	<extends>
+		<from>Remote</from>
+	</extends>
+	<import>java.rmi.Remote</import>
+	<import>java.rmi.RemoteException</import>
+	<import>java.net.*</import>
+	<abstract_method name="authenticateUser">
+		<access_level>public</access_level>
+		<arguments>
+			<parameter type="String">user</parameter>
+			<parameter type="String">password</parameter>
+		</arguments>
+		<throws>
+			<exception>RemoteException</exception>
+			<exception>SecurityException</exception>
+		</throws>
+		<return>boolean</return>
+	</abstract_method>
+	<abstract_method name="activateUser">
+		<access_level>public</access_level>
+		<arguments>
+			<parameter type="URL">link</parameter>
+		</arguments>
+		<return>void</return>
+	</abstract_method>
+</interface>

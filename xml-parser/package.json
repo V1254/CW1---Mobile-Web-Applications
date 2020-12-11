@@ -1,0 +1,15 @@
+{
+  "name": "xml-parser",
+  "version": "1.0.0",
+  "description": "XML Parser for CW1 Task3 in Mobile and Web Applications Module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mohamed Sharif-Farah/V1254",
+  "license": "",
+  "dependencies": {
+    "xml2js": "^0.4.23"
+  }
+}

@@ -1,0 +1,61 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="interface">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- There can be only one package statement , clarify if 0 is allowed here?? -->
+                <xs:element name="package" type="xs:string" minOccurs="0" maxOccurs="1" />
+                <!-- An interface may extend one or many interfaces.  -->
+                <xs:element name="extends" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- one to many from statements inside extend -->
+                            <xs:element name="from" type="xs:string" maxOccurs="unbounded" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- There can be zero to many import statements -->
+                <xs:element name="import" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+
+                <!-- An interface can have zero to many abstract methods -->
+                <xs:element name="abstract_method" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+
+                            <!-- A method can only have zero or one visibility modifier -->
+                            <xs:element name="access_level" minOccurs="0" type="xs:string" />
+
+                            <!-- A method can accept zero or 1 arguments element -->
+                            <xs:element name="arguments" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <!-- Can accept many parameters within it-->
+                                        <xs:element name="parameter" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute name="type" type="xs:string" />
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="throws" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="exception" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <!-- A method only allows one value to be returned -->
+                            <xs:element name="return" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required" />
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
